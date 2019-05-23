@@ -28,6 +28,11 @@ public class PacienteController {
         return pacienteRepository.findAll(pageable);
     }
 
+    @GetMapping("/paciente/{apPat}")
+    public Paciente getByApPat(@PathVariable String apPat){
+        return pacienteRepository.findByNameLastname2(apPat);
+    }
+
     @PutMapping("/paciente/{pacienteId}")
     public Paciente updatePaciente(@PathVariable Long pacienteId,
                                    @Valid @RequestBody Paciente pacienteRequest) {
